@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Login</title>{% endblock %}
+
+{% block content %}
+<div class="container regs">
+  <div class="row">
+    <div class="col-md-6 mx-auto mt-2">
+      <h3 class="text-center"><span style="color:brown;">Login Form</span> <i class="fas fa-user"></i></h3><hr>
+      <form action="" method="post" class="text-center">
+        {% csrf_token %}
+        {{form.as_p}}
+<br>
+         <button class="btn btn-primary btn-xl" style="margin-left:12%;"> L O G I N </button>
+      <br><hr>
+          <p>Go back to registration page, <a class="btn btn-info" href="{% url 'register' %}{% if request.GET.next %}?next={{request.GET.next}}{% endif %}">Register</a></p>
+          {% if error %}
+          <h5 style="color:red;">{{error}}</h5>
+          {% endif %}
+      </form>
+    </div>
+
+
+  </div>
+
+</div>
+
+<style>
+  .navs
+{
+
+width: 100%;
+background: rgb(36, 35, 35);
+position:fixed !important;
+z-index:1; /*Add this*/
+  width:100%;
+  height: auto;
+  text-align:center;
+  vertical-align:middle;
+  line-height:50px;
+  top:0px;
+
+
+}
+#navbar{
+    height: 90px;
+    width: 100%;
+    display: flex;
+
+
+}
+.navbar-brand{
+    font-size: 40px !important;
+    font-family: vollkorn;
+     text-shadow: 1px 2px 1px #699942;
+     font-weight: bold;
+     color: rgb(98, 240, 141) !important;
+
+}
+
+.navbar-txt{
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: whitesmoke !important;
+}
+.nav-item{
+    margin-left: 10px;
+}
+.navbar-txt:hover{
+    color:yellowgreen !important;
+
+}
+.container{
+    font-family: 'Poppins', sans-serif;
+    }
+
+ p input{
+
+  width: 210px;
+  box-shadow: rgb(157, 236, 120) 0px 20px 30px -10px;
+  border: 0.5px solid rgb(191, 233, 128) !important;
+  border-radius: 12px;
+
+ }
+ p label{
+        width: 150px;
+ }
+ .regs{
+  background: url(https://i.pinimg.com/originals/67/a0/15/67a01585a62cab6d06768af795266d34.jpg);
+
+ }
+ .errorlist{
+  color: red;
+
+ }
+</style>
+{% endblock %}

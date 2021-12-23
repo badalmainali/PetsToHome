@@ -1,0 +1,52 @@
+
+<div id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light navs">
+            <a class="navbar-brand" href="#">PetsToHome</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link navbar-txt" href="{% url 'main' %}">Home </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link navbar-txt" href="{% url 'pets' %}">Pets</a>
+                </li>
+
+
+                <li class="nav-item active">
+                  <a class="nav-link  navbar-txt" href="#">Pets-Blogs</a>
+                </li>
+
+                <li class="nav-item active">
+                  <a class="nav-link navbar-txt" href="{% url 'about' %}">About</a>
+                </li>
+
+                <li class="nav-item active">
+                  <a class="nav-link navbar-txt" href="{% url 'contact' %}">Contact </a>
+                </li>
+
+                <li class="nav-item active">
+                  <a class="nav-link navbar-txt" href="{% url 'mycart' %}"> Cart <i style="color: aqua;" class="fas fa-shopping-cart"></i> </a>
+                </li>
+
+                <li style="color: yellow;" class="mt-2">
+                {% if request.user.customer %}
+                Welcome, {{request.user.username}} |
+                  <a href="{% url 'customerprofile' %}" style="color:white;">My Profile</a> |
+                  <a href="{% url 'logout' %}"class="btn btn-danger btn-sm"> <i class="fas fa-sign-out-alt"></i></a>
+                {% else %}
+                </li>
+                  </ul>
+              <form class="form-inline ml-2 my-lg-0">
+
+               <a href="{% url 'register' %}" class="btn btn-outline-success my-2 my-sm-0"> LOGIN</a>
+              </form>
+                {% endif %}
+            </div>
+          </nav>
+
+</div>
+
